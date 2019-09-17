@@ -1,0 +1,6 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(3, 33.33%);
+    grid-template-rows: repeat(3, 100px);
+}
+

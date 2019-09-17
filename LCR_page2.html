@@ -1,0 +1,96 @@
+
+<!--
+    THIS PAGE WILL BE USED FOR THE HTML FOR 
+
+send brett a list of concerns, questions, how to get started, things im blocked by WITH the sat work. 
+
+
+    // <this is for what to do in javascript 
+
+Page set up:
+Grid 3X3 
+stangingsLive    diceBox    menu            (id = header)
+playerLeft    playerCurrent    playerRight   (id=player.container) 
+gameLog       (nothing)       potLive       (id= footer)
+
+standingsLive
+ START make mock up of how it should look in game play.
+    //JS: insert player name from input box to standingsLive. 
+    //learn now to send input data to another page. 
+    //learn how to make input box on page 1, that will appear from a drop down arrow
+
+diceBox
+    -START with how each side of the dice should look
+        L C R < images? custom font? 
+        DOT . < idk 
+    FLEXBOX to place dice in grid location
+    -button for ROLL 
+    flex box button??
+        // learn how to randomize dice. (transitions?)
+        //learn how to make dice appear to roll in place.
+
+menu
+    button that makes a drop down menu
+        Menu items:
+        Rules (opens new page)
+        Restart
+        Restart with current settings
+
+Player container
+    card for current player
+    displays name, player number, current chip value 
+    each card has its own class (should I limit it to 6?) $$$$$$$$$$$$$$$
+
+    -playerCurrent will appear larger in center with previous player to the right and next player on left
+
+    START with mock up of player card
+
+Game log 
+    will display description of each move of the game.
+    EX 
+            "Player 1 rolled L C (DOT)"
+            "Sean rolled (DOT) (DOT) R "
+            "Sharon rolled L (DOT) - " < she only rolled 2 dice becuase chip value = 2
+            "Robert was skipped" <<< this happens when a player have a chip value of 0
+
+potLive
+This will display the current value of all the chips in the pot. A increase of pot value will be determined by the chip value. 
+when C is rolled on the dice, the chip will go to the POT, this will increase potValue by 1 chipValue.
+
+Potlive UI will be simlar to the player card in design. 
+
+START with player card then alter. 
+
+
+-->
+<!--//////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--//////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--////////////////////////////////////////  This ends page description  ////////////////////////////////////-->
+<!--//////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--//////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="LCR_page2.css">
+</head>
+<body>
+    <div class= wrapper>
+        <div class="standingsLive">Current Standings</div>
+        <div class="diceBox">DICE</div>
+        <div class="menu">Menu</div>
+        <div class="playerLeft">Next Player</div>
+        <div class="playerCurrent">Current Player</div>
+        <div class="playerRight">Previous Player</div>
+        <div class="gameLog">Game Log</div>
+        <div class="NONE"> NOTHING</div>
+        <div class="potLive">Current Pot Value</div>
+
+    </div>
+</body>
+</html>
