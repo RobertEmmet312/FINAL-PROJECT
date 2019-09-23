@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">   
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,32 +10,28 @@
     <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
+    <form id="game-setup">
+        <h1>LCR</h1>
+        <label for="playerNames"> How Many Players!</label>
+            <input class="playerNames" type="text" name="player1" value="Player 1">
+            <input class="playerNames" type="text" name="player2" value="Player 2">
+            <input class="playerNames" type="text" name="player3" value="Player 3">
+            <input class="playerNames" type="text" name="player4" value="Player 4">
+            <input class="playerNames" type="text" name="player5" value="Player 5">
+            <input class="playerNames" type="text" name="player6" value="Player 6">
     
-        <div id="game-setup">
-            <h1>LCR</h1>
-            <label for="player-amount.input">How many players?</label>
-            <select id="player-amount">
-                <option value="">--Please choose an option--</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-            </select>
-            <label for="Chip Value">Chip Value($)</label>
-                <input type="number" id="chip-value.input" min="1" max="1000">
-            <label for="rollover.input">Rollover?</label>
-                <input type="checkbox" id="rollover.input">
-            <button>Play Game!</button>
-
-
-
-
-
-
-
-
-    </div>
     
+            <label for="Chip Value" id="chipValue">Chip Value($)</label>
+            <input type="number" id="chipValueInput" min="1" max="1000">
+    
+            <label for="rollover.input" class="toolTip"> Rollover?
+                <span class="toolTipText">A roll over occurs when a the last player rolls a CENTER on his/her last chip.  In RollOver game play, a new game will start with all the current players and the POT will contain all chips from previous game. <br> <br> Essentially, you are starting a new game with the same players all their money from the previous game will start in the POT VALUE</span>
+            </label>
+            <input type="checkbox" name="rollover.input" checked>
+                <span class="checkmark"></span>
+
+            <button type='submit' id="submitButton">Play Game!</button>
+            <input type="reset" id="reset">
+    </form>
 </body>
 </html>
