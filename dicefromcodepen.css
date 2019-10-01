@@ -1,6 +1,5 @@
-* { box-sizing: border-box; }
+.diceBox { box-sizing: border-box; }
 
-body { font-family: sans-serif; }
 
 .flex{
     display: flex;

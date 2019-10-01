@@ -1,6 +1,451 @@
-.wrapper{
-    display: grid;
-    grid-template-columns: repeat(3, 33.33%);
-    grid-template-rows: repeat(3, 100px);
+html{
+    background-image: url(green-soft-fabric-texture-background.jpg);
+    background-size: cover;
+    font-family: 'Varela Round', sans-serif;
+}
+html, body{
+  margin: 0px;
+  padding:0px;
+}
+/*============================================================================================
+  =========================CSS for main modal game setup======================================
+  ============================================================================================
+*/
+
+#gameSetupMain{
+	background-color: rgb(43, 38, 38);
+	font-family: 'Varela Round', sans-serif;
+	font-size: 25px;
+  color: white;
+  position:fixed;
+  width: 100%;
+  z-index: 100;
+  overflow: auto; 
 }
 
+/* this is use to hide the modal window when the game is in play. Visability:hidden will make this happend. JS will inset a class="hidden" to #gameSetupMain div when button is clicked */
+
+.hidden{
+  display:none;
+}
+
+
+#game-setup{
+	background-image: url('green-soft-fabric-texture-background.jpg');
+	padding: 10px;
+	width: 30%;
+	margin: 0 auto;
+	top: 20vh;
+	position: relative;
+	border-radius: 30px;
+	box-shadow: 0px 3px 13px rgba(172, 169, 169, 0.8);
+}
+
+label, select, input, h1, button{
+	display: block;
+	text-align: center;
+	margin: 0 auto;	
+	margin-bottom: 5px;
+
+}
+#chipValue{
+	margin-top:20px;
+
+}
+
+.playerNames, #chipValueInput{
+	box-shadow: inset 0 0 8px rgba(0,0,0,0.1), 0 0 16px rgba(0,0,0,0.1);
+	padding: 6px;
+	background: rgba(255,255,255,0.5);
+	font-family: inherit;
+	font-size: 15px;
+}
+
+#game-setup h1{
+	font-size: 76px;
+	margin-bottom: 20px;
+}
+
+#submitButton{
+	color: black;
+	background-color: yellow;
+	border-radius: 14px;
+	border: 0px;
+	margin-top: 30px;
+	font-size: 25px;
+	padding: 12px;
+	box-shadow: 0px 6px 2px rgba(0,0,0,0.8);
+	cursor: pointer;
+	font-family: inherit;
+
+}
+#submitButton:hover {
+	transform: scale(1.08); 
+
+}
+#submitButton:active {
+	position:relative;
+	top:2px;
+
+}
+
+/*============================================================================================
+  ==========================reset button style ===============================================
+  ============================================================================================
+*/
+
+#reset{
+	box-shadow: inset 0px 39px 0px -24px #e67a73;
+	background-color: #e4685d;
+	border-radius: 4px;
+	border: 1px solid #e4685d;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: inherit;
+	font-size: 13px;
+	padding: 6px 12px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #b23e35;
+	margin-top: 15px;
+	
+
+}
+#reset:hover {
+	background-color:#e4685d;
+	box-shadow: 0px 5px 13px rgba(0,0,0,0.8);
+
+}
+#reset:active {
+	position:relative;
+	top:2px;
+}
+
+/*============================================================================================
+  ==========================Tooltip Style ====================================================
+  ============================================================================================
+*/
+.toolTip {
+	position: relative;
+
+	margin-top:20px;
+
+  }
+
+  .toolTipText{
+	font-size: 17px;
+  }
+  
+  .toolTip .toolTipText {
+	visibility: hidden;
+	width: 65%;
+	background-color: #ffffffe3;
+	border: 1px solid black;
+	color: #000;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+	position: absolute;
+	z-index: 1;
+	top: -32px;
+	left: 65%;
+  }
+  
+  .toolTip:hover .toolTipText {
+	visibility: visible;
+  }
+
+/*
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////  CSS for page layout ////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+*/ 
+
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+}
+
+/*
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////  CSS for currentStandings ///////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+*/ 
+
+
+
+
+
+/*
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////  CSS for Dice  //////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+*/ 
+.diceBox { box-sizing: border-box; }
+
+.flex{
+    display: flex;
+
+}
+
+.scene {
+  width: 200px;
+  height: 200px;
+  margin: 25px;
+  perspective: 400px;
+  
+}
+
+.cube {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(-100px);
+  transition: transform 1s;
+}
+
+.cube.show-front  { transform: translateZ(-100px) rotateY(   0deg); }
+.cube.show-right  { transform: translateZ(-100px) rotateY( -90deg); }
+.cube.show-back   { transform: translateZ(-100px) rotateY(-180deg); }
+.cube.show-left   { transform: translateZ(-100px) rotateY(  90deg); }
+.cube.show-top    { transform: translateZ(-100px) rotateX( -90deg); }
+.cube.show-bottom { transform: translateZ(-100px) rotateX(  90deg); }
+
+.cube__face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border: 10px solid black;
+  line-height: 200px;
+  font-size: 100px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  font-family: 'Varela Round', sans-serif;
+  background-color: whitesmoke;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+}
+/*
+.cube__face--front  { background: hsla(  0, 100%, 50%, 0.7); }
+.cube__face--right  { background: hsla( 60, 100%, 50%, 0.7); }
+.cube__face--back   { background: hsla(120, 100%, 50%, 0.7); }
+.cube__face--left   { background: hsla(180, 100%, 50%, 0.7); }
+.cube__face--top    { background: hsla(240, 100%, 50%, 0.7); }
+.cube__face--bottom { background: hsla(300, 100%, 50%, 0.7); }
+*/
+
+
+.cube__face--front  { transform: rotateY(  0deg) translateZ(100px); }
+.cube__face--right  { transform: rotateY( 90deg) translateZ(100px); }
+.cube__face--back   { transform: rotateY(180deg) translateZ(100px); }
+.cube__face--left   { transform: rotateY(-90deg) translateZ(100px); }
+.cube__face--top    { transform: rotateX( 90deg) translateZ(100px); }
+.cube__face--bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+label { margin-right: 10px; }
+
+.cube-r{
+    float: right;
+
+}
+
+/* -----------------           Roll button CSS        -------------------*/
+#submitButton{
+	color: black;
+	background-color: yellow;
+	border-radius: 14px;
+	border: 0px;
+	margin-top: 30px;
+	font-size: 25px;
+	padding: 12px;
+	box-shadow: 0px 6px 2px rgba(0,0,0,0.8);
+	cursor: pointer;
+	font-family: inherit;
+
+}
+#submitButton:hover {
+	transform: scale(1.08); 
+
+}
+#submitButton:active {
+	position:relative;
+	top:2px;
+
+}
+
+#nextTurn{
+	color: black;
+	background-color: rgb(255, 0, 191);
+	border-radius: 14px;
+	border: 0px;
+	margin-top: 30px;
+	font-size: 16px;
+	padding: 12px;
+	box-shadow: 0px 6px 2px rgba(0,0,0,0.8);
+	cursor: pointer;
+	font-family: inherit;
+
+}
+#nextTurn:hover {
+	transform: scale(1.08); 
+
+}
+#nextTurn:active {
+	position:relative;
+	top:2px;
+
+}
+
+/*
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////  CSS for menu /// // ////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+*/ 
+.dropbtn {
+    background-image: url("dark-triangles.png");
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 36px;
+}
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    float: right;
+    right: 40px;
+  
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 20px;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+      background-color: #f1f1f1
+    }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown:hover .dropbtn {
+    background-color: rgb(43, 170, 121);
+
+  }
+
+/*
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////  CSS for playercard /////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+*/ 
+
+    .playerCard{
+        position: relative;
+        margin: 50px;
+    }
+    .chipimg{
+        width: 50px;
+        padding-top: 35px;
+     }
+    .nameBox{
+        position: absolute;
+        width: 81%;
+        border: 1px solid black;
+        border-radius: 23px;
+        top: -30px;
+        transform: translate(-50%, 0);
+        left: 50%;
+        background-image: url("dark-triangles.png");
+        color:whitesmoke;
+
+    }
+    h1{
+        text-align: center;
+        border-radius: 10px;
+        position: relative;
+    }
+    .chipBox{
+        border: 2px solid red;
+        text-align: center;
+        width: 100%;
+        border-radius: 9px;
+        padding: 27px;
+        box-sizing: border-box;
+        background-image: url("cheap_diagonal_fabric.png");
+
+}
+
+
+
+
+
+/*
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////  CSS for gameLog ////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+*/ 
+
+ .logBox{
+    font-family: 'Source Code Pro', monospace;
+ }
+
+ .gameLog-container{
+    background-color: #fbf7f78a;
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+ }
+
+/*
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////  CSS for potValue // ////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+*/ 
+
+.potCard{
+    width: 85%;
+    position: relative;
+    margin: 50px;
+}
+.topBox{
+    position: absolute;
+    width: 81%;
+    border: 1px solid black;
+    border-radius: 23px;
+    top: -30px;
+    transform: translate(-50%, 0);
+    left: 50%;
+    background-image: url("dark-triangles.png");
+    color:white;
+
+}
+h1{
+    text-align: center;
+    border-radius: 10px;
+    position: relative;
+}
+.potValueBox{
+    border: 2px solid #b0b0b0;
+    text-align: center;
+    width: 100%;
+    border-radius: 9px;
+    padding: 27px;
+    box-sizing: border-box;
+    background-image: url("cheap_diagonal_fabric.png");
+}

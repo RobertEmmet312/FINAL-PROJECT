@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
+
+<div id="gameSetupMain">
     <form id="game-setup">
         <h1>LCR</h1>
         <label for="playerNames"> How Many Players!</label>
@@ -33,5 +35,16 @@
             <button type='submit' id="submitButton">Play Game!</button>
             <input type="reset" id="reset">
     </form>
+<script>
+var gameSetupForm = document.querySelector('#gameSetupMain');
+
+gameSetupForm.addEventListener("submit", function hideGameSetup() { 
+    var hideModal = document.getElementById("gameSetupMain");
+    hideModal.classList.add("hidden");
+})
+
+</script> 
+</div>
+
 </body>
 </html>

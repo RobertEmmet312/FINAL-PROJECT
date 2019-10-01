@@ -62,7 +62,22 @@ Potlive UI will be simlar to the player card in design.
 START with player card then alter. 
 
 
+????????????????????????????????????????????????????????????????????????????????????????????????????????????????
+????????????????????????????????????????????????????????????????????????????????????????????????????????????????
+????????????????????????????????????????????????????????????????????????????????????????????????????????????????
+
+-How should I size each "item" in the grid? I have grid set at auto, so the biggest item in the each row will determine the width of the whole colum, for example, look at the dice. Its huge and the middle column is now huge.
+ 
+-How do I set up the scroll on the gamelog?
+
+-figure out how to make the DOT on the dice, and log
+-how to center dot on dice. 
+
+
+
+
 -->
+
 <!--//////////////////////////////////////////////////////////////////////////////////////////////////////////-->
 <!--//////////////////////////////////////////////////////////////////////////////////////////////////////////-->
 <!--////////////////////////////////////////  This ends page description  ////////////////////////////////////-->
@@ -73,24 +88,213 @@ START with player card then alter.
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Left, Right, Center Online</title>
     <link rel="stylesheet" type="text/css" href="LCR_page2.css">
 </head>
+
 <body>
-    <div class= wrapper>
-        <div class="standingsLive">Current Standings</div>
-        <div class="diceBox">DICE</div>
-        <div class="menu">Menu</div>
-        <div class="playerLeft">Next Player</div>
-        <div class="playerCurrent">Current Player</div>
-        <div class="playerRight">Previous Player</div>
-        <div class="gameLog">Game Log</div>
-        <div class="NONE"> NOTHING</div>
-        <div class="potLive">Current Pot Value</div>
+        <div id="gameSetupMain">
+                <form id="game-setup">
+                    <h1>LCR</h1>
+                    <label for="playerNames"> How Many Players!</label>
+                        <input class="playerNames" type="text" name="player1" value="Player 1">
+                        <input class="playerNames" type="text" name="player2" value="Player 2">
+                        <input class="playerNames" type="text" name="player3" value="Player 3">
+                        <input class="playerNames" type="text" name="player4" value="Player 4">
+                        <input class="playerNames" type="text" name="player5" value="Player 5">
+                        <input class="playerNames" type="text" name="player6" value="Player 6">
+                
+                
+                        <label for="Chip Value" id="chipValue">Chip Value($)</label>
+                        <input type="number" id="chipValueInput" min="1" max="1000">
+                
+                        <label for="rollover.input" class="toolTip"> Rollover?
+                            <span class="toolTipText">A roll over occurs when a the last player rolls a CENTER on his/her last chip.  In RollOver game play, a new game will start with all the current players and the POT will contain all chips from previous game. <br> <br> Essentially, you are starting a new game with the same players all their money from the previous game will start in the POT VALUE</span>
+                        </label>
+                        <input type="checkbox" name="rollover.input" checked>
+                            <span class="checkmark"></span>
+            
+                        <button type='submit' id="submitButton">Play Game!</button>
+                        <input type="reset" id="reset">
+                </form>
+            </div>
+    <div class="wrapper">
+<!--HTML for Current Standing of each player in game-->        
+        <div class="standingsLive">
+            <div class="currentStandings-containter">
+                <h1>Current Standings</h1>
+                <ol>
+                    <li>Charlotte</li>
+                    <li>Patrick</li>
+                    <li>Robert</li>
+                    <li>Brett</li>
+                    <li>Jenny</li>
+                    <li>#</li>
+                </ol>      
+            </div>
+        </div>
+<!--HTML for DICE-->        
+        <div class="diceBox">
+                <div class="flex">
+                        <div class="scene">
+                          <div class="cube">
+                            <div class="cube__face cube__face--front">*</div>
+                            <div class="cube__face cube__face--back">*</div>
+                            <div class="cube__face cube__face--right">R</div>
+                            <div class="cube__face cube__face--left">L</div>
+                            <div class="cube__face cube__face--top">C</div>
+                            <div class="cube__face cube__face--bottom">*</div>
+                          </div>
+                        </div>
+                        <div class="scene">
+                          <div class="cube">
+                            <div class="cube__face cube__face--front">*</div>
+                            <div class="cube__face cube__face--back">*</div>
+                            <div class="cube__face cube__face--right">R</div>
+                            <div class="cube__face cube__face--left">L</div>
+                            <div class="cube__face cube__face--top">C</div>
+                            <div class="cube__face cube__face--bottom">*</div>
+                          </div>
+                        </div>
+                        <div class="scene">
+                          <div class="cube">
+                            <div class="cube__face cube__face--front">*</div>
+                            <div class="cube__face cube__face--back">*</div>
+                            <div class="cube__face cube__face--right">R</div>
+                            <div class="cube__face cube__face--left">L</div>
+                            <div class="cube__face cube__face--top">C</div>
+                            <div class="cube__face cube__face--bottom">*</div>
+                          </div>
+                        </div>
+                    </div>
+                
+                  <p class="radio-group">
+                    <label>
+                      <input type="radio" name="rotate-cube-side" value="front" checked /> Dot (front)
+                    </label>
+                    <label>
+                      <input type="radio" name="rotate-cube-side" value="right" /> Right
+                    </label>
+                    <label>
+                      <input type="radio" name="rotate-cube-side" value="back" /> Dot (Back)
+                    </label>
+                    <label>
+                      <input type="radio" name="rotate-cube-side" value="left" /> Left
+                    </label>
+                    <label>
+                      <input type="radio" name="rotate-cube-side" value="top" /> Center (top)
+                    </label>
+                    <label>
+                      <input type="radio" name="rotate-cube-side" value="bottom" /> Dot (bottom)
+                    </label>
+                  </p> 
+
+                <button type='submit' id="submitButton" onclick="changeSide();">Roll</button>
+                <button id="nextTurn" onclick="nextTurn();">Next Turn</button>
+                  
+        </div>
+
+<!--HTML for Menu and menu items -->        
+
+        <div class="menuBox">
+            <div class="dropdown">
+                <button class="dropbtn">Menu</button>
+                <div class="dropdown-content">
+                    <a href="#">Restart</a>
+                    <a href="#">Restart with current settings</a>
+                    <a href="rules.html" target="_blank">Rules</a> 
+                    <a href="https://www.amazon.com/LCR%C2%AE-Left-Center-RightTM-Dice/dp/B003I64OT6" target="_blank">Buy LCR Dice</a>
+                </div>
+            </div>
+
+<!--HTML for Player cards-->        
+ 
+        </div>
+        <div class="playerLeft">
+                <div class="playerCard">
+                        <div class="nameBox">
+                            <h1></h1>
+                        </div>  
+                        <div class="chipBox">
+                            <img src="poker-chip.svg" class="chipimg">
+                            <img src="poker-chip.svg" class="chipimg">
+                            <img src="poker-chip.svg" class="chipimg">
+                        </div>
+                    </div>
+
+        </div>
+        <div class="playerCurrent">
+                <div class="playerCard">
+                        <div class="nameBox">
+                            <h1></h1>
+                        </div>  
+                        <div class="chipBox">
+                            <img src="poker-chip.svg" class="chipimg">
+                            <img src="poker-chip.svg" class="chipimg">
+                            <img src="poker-chip.svg" class="chipimg">
+                        </div>
+                    </div>             
+
+        </div>
+        <div class="playerRight">
+                <div class="playerCard">
+                        <div class="nameBox">
+                            <h1></h1>
+                        </div>  
+                        <div class="chipBox">
+                            <img src="poker-chip.svg" class="chipimg">
+                            <img src="poker-chip.svg" class="chipimg">
+                            <img src="poker-chip.svg" class="chipimg">
+                        </div>
+                    </div>
+
+        </div>
+<!--HTML for game log, what each move produced-->        
+
+        <div class="gameLogBox">
+            <div class="gameLog-container">
+                <h1>Game Log</h1>
+                    <p class="logBox">
+                        Player 1 rolled R L C 
+                        <br>
+                        Player 2 rolled  <span class="dot">&#183;</span>  L  <span class="dot">&#183;</span>  
+                        <br>
+                        Patrick rolled  L L -
+                        <br>
+                        Charlotte rolled C C -
+                        <br>
+                        Robert was skipped
+                        <br>
+                        Shannon was skipped
+                    </p> 
+            </div>
+        </div>
+<!--HTML for BLANK SPACE-->        
+
+        <div class="NONE"></div>
+
+<!--HTML for Current value of pot-->        
+
+        <div class="potLiveBox">
+            <div class="potCard">
+                <div class="topBox">
+                <h1>POT</h1>
+                </div>  
+                <div class="potValueBox">
+                    <p>$35</p>
+                    <p>Chip Value: $1</p>
+                </div>
+            </div>
+        </div>
 
     </div>
+
+
+<script src="index.js"></script> 
 </body>
 </html>

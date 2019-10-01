@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form>
+    
+    <input type="text"> 
+    
+    <input type="text">
+    
+    <input type="text">
+    <button type="submit" id="submitbtn">Submit</button>
+
+</form>
+
+
+
+    <script>
+
+var GAME = {};
+//i dont have stand this at all...
+
+function Player(name) {
+  this.name = name;
+  this.canRoll = true; 
+  this.chips = 3;
+}
+//^this is creating a "template" object
+
+
+
+GAME.players = [] 
+
+var gameSetupForm = document.querySelector('form');
+//pretend there is an invisble robot doing things to your page. This is telling the robot that the form on your page is called gameSetupForm. You are creating a VOCAB for this robot, so when you say, gameSetupForm, it knows to go into the page and use the FORM. 
+//THIS HAS NO ACTION Behind it 
+
+
+  //"HEY ROBOT, pay attention to the gameSetupFrom, if I click the submit button on that form, DO THIS"
+gameSetupForm.addEventListener("submit", function(event) { 
+  event.preventDefault();                                                //"hey robot, i know you normally do this with forms, dont do that this time"
+  
+  var inputs = event.target.querySelectorAll('input[type=text]'); 
+  //when the submit (AN EVENT) button is pressed, the broswer creates an attribute called target
+  //when the submit button is clicked (submit is an Event), Go to the "Target" attribute that was just created by clicking submit and grab(queryselectorAll) the input type input type of TEXT
+  // when you have done the frist twp steps, you are call the data you have inputs. 
+  //console.log(inputs) <<< do this with all lines 
+
+
+  for(var i = 0; i < inputs.length; i++) {
+      // i
+      // inputs[i]
+      // inputs[i].value
+      //^ console.log this stuff
+    GAME.players.push( new Player(inputs[i].value));
+    console.log(inputs[i])
+  }
+
+});
+
+
+</script>
+</body>
+</html>
+
+
