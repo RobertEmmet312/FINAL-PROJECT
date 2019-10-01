@@ -51,14 +51,7 @@ function updatePlayer(whichPlayer, thePlayerIWant) {
 
 
 
-function updateScoreboard(nameList) {
-  for(var i = 0; i < nameList.length; i++) {
-  htmlName = '<li>' + nameList[i].name + '</li>'
-  }
-
-
-
-
+    
 GAME.currentRoller = -1;
 
 
@@ -107,5 +100,13 @@ changeSide();
 
 radioGroup.addEventListener( 'change', changeSide );
 
+
+
+function updateScoreboard() {
+  for(var i = 0; i < GAME.players.length; i++) {
+    var ol = document.getElementById("scoreBoard");
+    var li = document.createElement("li");
+    ol.appendChild(li);
+  }}
 
 
