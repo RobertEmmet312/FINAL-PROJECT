@@ -166,30 +166,10 @@ START with player card then alter.
                           </div>
                         </div>
                     </div>
-                
-                  <p class="radio-group">
-                    <label>
-                      <input type="radio" name="rotate-cube-side" value="front" checked /> Dot (front)
-                    </label>
-                    <label>
-                      <input type="radio" name="rotate-cube-side" value="right" /> Right
-                    </label>
-                    <label>
-                      <input type="radio" name="rotate-cube-side" value="back" /> Dot (Back)
-                    </label>
-                    <label>
-                      <input type="radio" name="rotate-cube-side" value="left" /> Left
-                    </label>
-                    <label>
-                      <input type="radio" name="rotate-cube-side" value="top" /> Center (top)
-                    </label>
-                    <label>
-                      <input type="radio" name="rotate-cube-side" value="bottom" /> Dot (bottom)
-                    </label>
-                  </p> 
-
-                <button type='submit' id="submitButton" onclick="changeSide();">Roll</button>
-                <button id="nextTurn" onclick="nextTurn();">Next Turn</button>
+                <div class="buttons">
+                    <button type='submit' id="submitButton" onclick="rollallTheDice();">Roll</button>
+                    <button id="nextTurn" onclick="nextTurn(); updateScoreboard()">Next Turn</button>
+                </div>
                   
         </div>
 

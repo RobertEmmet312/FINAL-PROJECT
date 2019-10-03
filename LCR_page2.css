@@ -35,7 +35,7 @@ html, body{
 	padding: 10px;
 	width: 30%;
 	margin: 0 auto;
-	top: 20vh;
+	top: 10vh;
 	position: relative;
 	border-radius: 30px;
 	box-shadow: 0px 3px 13px rgba(172, 169, 169, 0.8);
@@ -49,7 +49,7 @@ label, select, input, h1, button{
 
 }
 #chipValue{
-	margin-top:20px;
+	margin-top:10px;
 
 }
 
@@ -63,7 +63,7 @@ label, select, input, h1, button{
 
 #game-setup h1{
 	font-size: 76px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 #submitButton{
@@ -71,14 +71,13 @@ label, select, input, h1, button{
 	background-color: yellow;
 	border-radius: 14px;
 	border: 0px;
-	margin-top: 30px;
-	font-size: 25px;
+	font-size: 10px;
 	padding: 12px;
 	box-shadow: 0px 6px 2px rgba(0,0,0,0.8);
 	cursor: pointer;
-	font-family: inherit;
-
+	font-family: inherit
 }
+
 #submitButton:hover {
 	transform: scale(1.08); 
 
@@ -107,7 +106,6 @@ label, select, input, h1, button{
 	text-decoration: none;
 	text-shadow: 0px 1px 0px #b23e35;
 	margin-top: 15px;
-	
 
 }
 #reset:hover {
@@ -171,6 +169,13 @@ label, select, input, h1, button{
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 */ 
 
+span{
+  margin-left: 20px;
+}
+li{
+  margin:2px;
+
+}
 
 
 
