@@ -174,7 +174,6 @@ var currentPlayer = GAME.players[GAME.currentRoller];
 var playerToTheLeft;
 var playerToTheRight;
 
-
 if(GAME.currentRoller === 0){
   playerToTheLeft = GAME.players[GAME.currentRoller + 1]
   playerToTheRight = GAME.players[GAME.players.length - 1]
